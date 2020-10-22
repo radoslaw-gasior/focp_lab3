@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include<array>
+#include <cstdlib>
 
 using namespace std;
 
@@ -12,6 +13,13 @@ struct point2d{
 	double y;
 };
 
+point2d create_point() {
+	point2d temp;
+	temp.x = rand() % 100;
+	temp.y = rand() % 100;
+	return temp;
+}
+
 
 int main() {
 
@@ -19,16 +27,16 @@ int main() {
 	point2d mypoint;
 
 	//initialize its members
-	mypoint.x = 3.3;
-	mypoint.y = 5.5;
+	mypoint.x = rand()%100;
+	mypoint.y = rand()%100;
 
 	point2d myotherpoint;
 
 	myotherpoint.x = 3.5;
 	myotherpoint.y = 4.2;
 
-	cout << "X value" << mypoint.x << endl;
-	cout << "Y value" << mypoint.y << endl;
+	cout << "X value  " << mypoint.x << endl;
+	cout << "Y value  " << mypoint.y << endl;
 
 
 
