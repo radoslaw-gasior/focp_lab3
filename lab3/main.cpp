@@ -7,11 +7,15 @@
 
 using namespace std;
 
-
+/*
 //define struct
 struct point2d{
 	double x;
 	double y;
+
+	void print() {
+		cout << "(" << this->x << "," << this->y << ")" << endl;
+	}
 };
 
 point2d create_point() {
@@ -37,9 +41,42 @@ float areaof_triangle(point2d a, point2d b, point2d c) {
 	float product=a.x * (b.y - c.y) + b.x*(c.y - a.y) + c.x*(a.y - b.y);
 	return abs(product / 2);
 }
+*/
+
+struct Matrix2d {
+	vector<vector<int>> contents;
+
+	void print() {
+
+		cout << "contents of the matrix:" << endl;
+
+		int rows = contents.size();
+		int columns = contents[0].size();
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j <columns ; j++) {
+				cout << contents[i][j] << " ";
+			}
+			cout << endl;
+		}
+	}
+};
+
 
 int main() {
 
+	//declare
+	Matrix2d a;
+	Matrix2d b;
+
+	//initialize
+
+	a.contents = { {1,2,3},{4,5,6},{7,8,9} };
+	b.contents = { {9,8,7},{6,5,4},{3,2,1} };
+
+
+	a.print();
+	b.print();
+	/*
 	array<point2d, 10> points;
 
 	for (int i = 0; i < 10; i++) {
@@ -49,7 +86,7 @@ int main() {
 
 	float largest_distance = 0.0;
 	point2d first, second, third;
-
+	*/
 
 	/*
 	for (int i = 0; i < 10; i++) {
@@ -66,7 +103,7 @@ int main() {
 		}
 	}
 	*/
-
+	/*
 	float largest_area = 0.0;
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
@@ -81,11 +118,17 @@ int main() {
 			}
 		}
 	}
+	*/
 
+	/*
 	cout << "largest area is:" << largest_area << endl;
-	cout << "first point: " << first.x << "," << first.y << endl;
-	cout << "second point: " << second.x << "," << second.y << endl;
-	cout << "third point: " << third.x << "," << third.y << endl;
+	cout << "first point: ";
+	first.print();
+	cout << "second point: ";
+	second.print();
+	cout << "third point: ";
+	third.print();
+	*/
 
 	//cout << "largest distance is:" << largest_distance << endl;
 	//cout << "first point: " << first.x << "," << first.y << endl;
