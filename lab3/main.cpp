@@ -19,24 +19,27 @@ point2d create_point() {
 	temp.y = rand() % 100;
 	return temp;
 }
+//pass by reference &&&&&&&&&&&
+void create_in_place(point2d& point) {
+
+	point.x = rand() % 100;
+	point.y = rand() % 100;
+}
 
 
 int main() {
 
 	//declare variable with struct
-	point2d mypoint;
+	point2d mypoint=create_point();
 
-	//initialize its members
-	mypoint.x = rand()%100;
-	mypoint.y = rand()%100;
+	point2d empty_point;
 
-	point2d myotherpoint;
+	create_in_place(empty_point);
 
-	myotherpoint.x = 3.5;
-	myotherpoint.y = 4.2;
 
-	cout << "X value  " << mypoint.x << endl;
-	cout << "Y value  " << mypoint.y << endl;
+
+	cout << "X value  " << empty_point.x << endl;
+	cout << "Y value  " << empty_point.y << endl;
 
 
 
