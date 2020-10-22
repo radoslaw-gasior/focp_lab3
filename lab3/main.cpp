@@ -46,6 +46,50 @@ float areaof_triangle(point2d a, point2d b, point2d c) {
 struct Matrix2d {
 	vector<vector<int>> contents;
 
+	void add(Matrix2d other) {
+		if (other.rows() == rows() && other.columns()==columns()) {
+			
+			for (int i = 0; i < rows(); i++) {
+				for (int j = 0; j < columns(); j++) {
+					contents[i][j] += other.contents[i][j];
+				}
+			}
+
+		}
+		else {
+			cout << "dimensions must match" << endl;
+		}
+	}
+	
+	
+	int rows() {
+		return contents.size();
+	}
+	int columns() {
+		return contents[0].size();
+	}
+
+
+	void input_matrix() {
+		int columns, rows;
+		cout << "how many rows?" << endl;
+		cin >> rows;
+		cout << "number of columns?" << endl;
+		cin >> columns;
+		
+		for (int i = 0; i < rows; i++) {
+			vector<int>row;
+			int temp;
+
+			for (int j = 0; j < columns; j++) {
+				cout << "introduce value" << endl;
+				cin >> temp;
+				row.push_back(temp);
+			}
+			contents.push_back(row);
+		}
+	}
+
 	void print() {
 
 		cout << "contents of the matrix:" << endl;
@@ -64,18 +108,18 @@ struct Matrix2d {
 
 int main() {
 
-	//declare
-	Matrix2d a;
-	Matrix2d b;
+	
+	Matrix2d a,b;
 
-	//initialize
-
-	a.contents = { {1,2,3},{4,5,6},{7,8,9} };
-	b.contents = { {9,8,7},{6,5,4},{3,2,1} };
-
+	a.input_matrix();
+	b.input_matrix();
 
 	a.print();
 	b.print();
+
+	a.add(b);
+	a.print();
+	
 	/*
 	array<point2d, 10> points;
 
